@@ -1,0 +1,35 @@
+I added Room, Guest, and Booking models, controllers, and routes, wired them in app.js, and fixed the DB export so your server boots cleanly.
+Endpoints now available (all JSON):
+Rooms:
+GET /api/rooms
+GET /api/rooms/:id
+POST /api/rooms { number, type, price, status? }
+PUT /api/rooms/:id { number?, type?, price?, status? }
+DELETE /api/rooms/:id
+Guests:
+GET /api/guests
+GET /api/guests/:id
+POST /api/guests { name, email, phone }
+PUT /api/guests/:id { name?, email?, phone? }
+DELETE /api/guests/:id
+Bookings:
+GET /api/bookings
+GET /api/bookings/:id
+POST /api/bookings { guestId, roomId, checkIn, checkOut, status? }
+PUT /api/bookings/:id { guestId?, roomId?, checkIn?, checkOut?, status? }
+DELETE /api/bookings/:id (frees the room to available)
+Notes:
+Booking creation checks the room is available, then marks it occupied.
+Deleting a booking sets its room back to available.
+How to run:
+Set MONGO_URI in a .env or ensure local Mongo at mongodb://127.0.0.1:27017/mvc_crud_example.
+Start: node app.js (or npx nodemon app.js).
+Quick smoke tests (example bodies):
+Create Room: POST /api/rooms { "number": 101, "type": "Deluxe", "price": 120 }
+Create Guest: POST /api/guests { "name":"Jane", "email":"jane@example.com", "phone":"123456" }
+Create Booking: POST /api/bookings { "guestId":"<gid>", "roomId":"<rid>", "checkIn":"2025-10-20", "checkOut":"2025-10-22" }
+Status update: I created models (roomModel.js, guestModel.js, bookingModel.js), controllers, and routes, wired them in app.js, and exported connectDB. All tasks are complete.
+Created and wired CRUD for rooms, guests, bookings under /api/*.
+Enforced simple room availability on booking create; room freed on booking delete.
+Fixed config/db.js to export connectDB and hooked it in app.js.
+

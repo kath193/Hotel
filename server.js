@@ -4,9 +4,9 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const morgan = require('morgan');
 
-const roomsRoutes = require('./src/routes/rooms');
-const guestsRoutes = require('./src/routes/guests');
-const bookingsRoutes = require('./src/routes/bookings');
+const roomsRoutes = require('./routes/rooms');
+const guestsRoutes = require('./routes/guests');
+const bookingsRoutes = require('./routes/bookings');
 
 const app = express();
 

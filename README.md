@@ -2,7 +2,7 @@
 This API provides full CRUD operations for managing hotel Rooms, Guests, and Bookings. It connects to MongoDB Atlas.
 
 # Base URL
-https://hotel-3-ko5c.onrender.com
+https://hotel-management-api-b4dl.onrender.com
 
 # API Endpoints
 # Rooms

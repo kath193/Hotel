@@ -34,7 +34,7 @@ https://hotel-3-ko5c.onrender.com
 
 # Postman Testing
 * Rooms
-  POST http://localhost:5000/api/rooms
+  POST https://hotel-3-ko5c.onrender.com/api/rooms
   
 Body (JSON):
 {
@@ -45,20 +45,77 @@ Body (JSON):
 }
 
 * Get All Rooms
-  GET http://localhost:5000/api/rooms
+  GET https://hotel-3-ko5c.onrender.com/api/rooms
 
 * Update Room
-  PUT http://localhost:5000/api/rooms/{roomId}
+  PUT https://hotel-3-ko5c.onrender.com/api/rooms/{roomId}
   
 Body (JSON):
 {
+  "number": 101,
+  "type": "Single",
   "status": "occupied",
   "price": 120
 }
 
-DELETE http://localhost:5000/api/rooms/{roomId}
+DELETE https://hotel-3-ko5c.onrender.com/api/rooms/{roomId}
 
 * Guests
-  
+  POST https://hotel-3-ko5c.onrender.com/api/guests
+Body (JSON):
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "phone": "1234567890"
+}
+
+
+* Get All Guests
+  GET https://hotel-3-ko5c.onrender.com/api/guests
+
+* Update Guest
+  PUT https://hotel-3-ko5c.onrender.com/api/guests/{guestId}
+Body (JSON):
+{
+  "name": "John Doe",
+  "email": "john@example.com"
+  "phone": "0987654321"
+}
+
+
+*Delete Guest
+ DELETE https://hotel-3-ko5c.onrender.com/api/guests/{guestId}
+
+
+*Bookings
+
+POST https://hotel-3-ko5c.onrender.com/api/bookings
+Body (JSON):
+{
+  "guestId": "60d0fe4f5311236168a109ca",
+  "roomId": "60d0fe4f5311236168a109cb",
+  "checkIn": "2025-11-01",
+  "checkOut": "2025-11-05",
+  "status": "booked"
+}
+
+*Get All Bookings
+  GET https://hotel-3-ko5c.onrender.com/api/bookings
+
+*Update Booking
+ PUT https://hotel-3-ko5c.onrender.com/api/bookings/{bookingId}
+Body (JSON):
+{
+  "guestId": "60d0fe4f5311236168a109ca",
+  "roomId": "60d0fe4f5311236168a109cb",
+  "checkIn": "2025-11-01",
+  "checkOut": "2025-11-05",
+  "status": "checked-in"
+}
+
+*Delete Booking
+ DELETE https://hotel-3-ko5c.onrender.com/api/bookings/{bookingId}
+
+
 
   

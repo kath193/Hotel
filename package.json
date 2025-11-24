@@ -1,24 +1,23 @@
 {
-  "name": "hotel-management",
+  "name": "hotel-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "Hotel Management REST API (Node.js + Express + MongoDB)",
   "main": "server.js",
   "scripts": {
   "start": "node server.js",
-  "dev": "nodemon server.js",
-  "seed": "node scripts/seed.js"
+  "dev": "nodemon server.js"
 },
-  "keywords": [],
+  "keywords": ["hotel", "api", "express", "mongodb", "mongoose"],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "dotenv": "^17.2.3",
-    "express": "^5.1.0",
-    "mongoose": "^8.19.2",
-    "morgan": "^1.10.1"
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.6.0",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.1.0"
   }
 }

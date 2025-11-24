@@ -6,7 +6,7 @@ const {
   getGuest,
   updateGuest,
   deleteGuest
-} = require('../controllers/guestController');
+} = require('./controllers/guestController');
 
 router.post('/', createGuest);
 router.get('/', getGuests);

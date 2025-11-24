@@ -14,9 +14,9 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 // Routes
-const roomsRoutes = require('../routes/rooms');   
-const guestsRoutes = require('../routes/guests');
-const bookingsRoutes = require('../routes/bookings');
+const roomsRoutes = require('./routes/rooms');   
+const guestsRoutes = require('./routes/guests');
+const bookingsRoutes = require('./routes/bookings');
 
 app.use('/api/rooms', roomsRoutes);
 app.use('/api/guests', guestsRoutes);

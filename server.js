@@ -2,7 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const morgan = require('morgan');
-const connectDB = require('./src/config/db'); // add 'src'
+const connectDB = require('./config/db'); // add 'src'
 dotenv.config();
 
 connectDB();
@@ -14,9 +14,9 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 // Routes
-const roomsRoutes = require('./src/routes/rooms');   // add 'src'
-const guestsRoutes = require('./src/routes/guests');
-const bookingsRoutes = require('./src/routes/bookings');
+const roomsRoutes = require('./routes/rooms');   // add 'src'
+const guestsRoutes = require('./routes/guests');
+const bookingsRoutes = require('./routes/bookings');
 
 app.use('/api/rooms', roomsRoutes);
 app.use('/api/guests', guestsRoutes);

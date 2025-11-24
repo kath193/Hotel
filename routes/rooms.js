@@ -6,7 +6,7 @@ const {
   getRoom,
   updateRoom,
   deleteRoom
-} = require('/controllers/roomsController');
+} = require('./controllers/roomsController');
 
 router.post('/', createRoom);
 router.get('/', getRooms);

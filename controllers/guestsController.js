@@ -1,50 +1,52 @@
 const Guest = require('../models/Guest');
 
-// GET all guests
-exports.getAllGuests = async (req, res) => {
+// CREATE
+exports.createGuest = async (req, res) => {
+  try {
+    const guest = await Guest.create(req.body);
+    res.status(201).json(guest);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+};
+
+// READ all
+exports.getGuests = async (req, res) => {
   try {
     const guests = await Guest.find();
     res.json(guests);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
 };
 
-// POST new guest
-exports.createGuest = async (req, res) => {
+// READ one
+exports.getGuest = async (req, res) => {
   try {
-    const newGuest = new Guest(req.body);
-    await newGuest.save();
-    res.status(201).json(newGuest);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
+    const guest = await Guest.findById(req.params.id);
+    if (!guest) return res.status(404).json({ error: 'Guest not found' });
+    res.json(guest);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
 };
 
-// PUT update guest by ID
+// UPDATE
 exports.updateGuest = async (req, res) => {
   try {
-    const updatedGuest = await Guest.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    if (!updatedGuest) {
-      return res.status(404).json({ error: 'Guest not found' });
-    }
-    res.json(updatedGuest);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
+    const updated = await Guest.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    res.json(updated);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
   }
 };
 
-// DELETE guest by ID
+// DELETE
 exports.deleteGuest = async (req, res) => {
   try {
-    const deletedGuest = await Guest.findByIdAndDelete(req.params.id);
-    if (!deletedGuest) {
-      return res.status(404).json({ error: 'Guest not found' });
-    }
-    res.json({ message: 'Guest deleted successfully' });
-  } catch (error) {
-    res.status(400).json({ error: error.message });
+    await Guest.findByIdAndDelete(req.params.id);
+    res.json({ message: 'Guest deleted' });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
 };
-
-

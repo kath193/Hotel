@@ -1,4 +1,4 @@
-const Room = require('../models/Room');
+const Room = require('./models/Room');
 
 // CREATE
 exports.createRoom = async (req, res) => {
@@ -50,3 +50,4 @@ exports.deleteRoom = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+

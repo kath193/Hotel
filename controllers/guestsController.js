@@ -1,4 +1,4 @@
-const Guest = require('../models/Guest');
+const Guest = require('./models/Guest');
 
 // CREATE
 exports.createGuest = async (req, res) => {

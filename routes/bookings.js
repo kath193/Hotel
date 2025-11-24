@@ -6,7 +6,7 @@ const {
   getBooking,
   updateBooking,
   deleteBooking
-} = require('../controllers/bookingController');
+} = require('./controllers/bookingController');
 
 router.post('/', createBooking);
 router.get('/', getBookings);
